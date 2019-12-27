@@ -225,8 +225,8 @@ namespace LCD1IN8{
         return;
     }
 	
-    //% shim=LCD1IN8::DisChar_1207
-    function DisChar_1207_Big(Xchar: number, Ychar: number, Char_Offset: number, Color: number, Size: number): void {
+    //% shim=LCD1IN8::DisChar_1207_Big
+    function DisChar_1207_Big(Xchar: number, Ychar: number, Char_Offset: number, Color: number, Char_Size: number): void {
         return;
     }
 
@@ -282,9 +282,9 @@ namespace LCD1IN8{
     //% block="Show String|X %Xchar|Y %Ychar|char %ch|Color %Color|Size %Size"
     //% Xchar.min=1 Xchar.max=160 Ychar.min=1 Ychar.max=128
     //% Color.min=0 Color.max=65535
-    //% Size.min=1 Size.max=10
+    //% Char_Size.min=1 Char_Size.max=10
     //% weight=100
-    export function DisStringBig(Xchar: number, Ychar: number, ch: string, Color: number, Size: number): void {
+    export function DisStringBig(Xchar: number, Ychar: number, ch: string, Color: number, Char_Size: number): void {
         let Xpoint = Xchar;
         let Ypoint = Ychar;
         let Font_Height = 12;
@@ -296,20 +296,20 @@ namespace LCD1IN8{
             let Char_Offset = ch_asicc * Font_Height;
 			// let Char_Offset = ch_asicc * Font_Height *(Font_Width/8 +(Font_Width%8?1:0));
 			
-            if((Xpoint + (Font_Width*Size)) > 160) {
+            if((Xpoint + (Font_Width*Char_Size)) > 160) {
                 Xpoint = Xchar;
-                Ypoint += (Font_Height*Size);
+                Ypoint += (Font_Height*Char_Size);
             }
 
             // If the Y direction is full, reposition to(Xstart, Ystart)
-            if((Ypoint  + (Font_Height*Size)) > 128) {
+            if((Ypoint  + (Font_Height*Char_Size)) > 128) {
                 Xpoint = Xchar;
                 Ypoint = Ychar;
             }
-            DisChar_1207_Big(Xpoint, Ypoint, Char_Offset, Color,Size);
+            DisChar_1207_Big(Xpoint, Ypoint, Char_Offset, Color,Char_Size);
 
             //The next word of the abscissa increases the font of the broadband
-            Xpoint += (Font_Width*Size);
+            Xpoint += (Font_Width*Char_Size);
         }
     }
 	
@@ -318,11 +318,11 @@ namespace LCD1IN8{
     //% block="Show number|X %Xnum|Y %Ynum|number %num|Color %Color|Size %Size"
     //% Xnum.min=1 Xnum.max=160 Ynum.min=1 Ynum.max=128
     //% Color.min=0 Color.max=65535
-    //% Size.min=1 Size.max=10
+    //% Char_Size.min=1 Char_Size.max=10
     //% weight=100
-    export function DisNumber(Xnum: number, Ynum: number, num: number, Color: number,Size: number): void {
+    export function DisNumber(Xnum: number, Ynum: number, num: number, Color: number,Char_Size: number): void {
         let Xpoint = Xnum;
         let Ypoint = Ynum;
-        DisStringBig(Xnum, Ynum, num + "", Color,Size);
+        DisStringBig(Xnum, Ynum, num + "", Color,Char_Size);
     }
 }
