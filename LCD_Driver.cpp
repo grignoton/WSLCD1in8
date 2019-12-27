@@ -375,10 +375,8 @@ void LCD_Driver::LCD_DisChar_1207(int Xchar, int Ychar, int Char_Offset, int Col
     for(Page = 0; Page < 12; Page ++ ) {
         for(Column = 0; Column < 7; Column ++ ) {
             if(*ptr & (0x80 >> (Column % 8))) {
-		for (NbX = 0; NbX < 2; NbX ++ )
-		{
-		  for (NbY = 0; NbY < 2; NbY ++ )
-		  {
+		for (NbX = 0; NbX < 2; NbX ++ )	{
+		  for (NbY = 0; NbY < 2; NbY ++ ) {
                       LCD_SetPoint(Xchar + (Column * 2) + NbX, Ychar + ( Page * 2) + NbY, Color);
 		  }
 		}
