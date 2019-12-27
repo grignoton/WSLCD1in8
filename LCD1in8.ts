@@ -221,12 +221,12 @@ namespace LCD1IN8{
     }
 
     //% shim=LCD1IN8::DisChar_1207
-    export function DisChar_1207(Xchar: number, Ychar: number, Char_Offset: number, Color: number): void {
+    function DisChar_1207(Xchar: number, Ychar: number, Char_Offset: number, Color: number): void {
         return;
     }
 	
     //% shim=LCD1IN8::DisChar_Big
-    export function DisChar_Big(Xchar: number, Ychar: number, Char_Offset: number, Color: number, Char_Size: number): void {
+    function DisChar_Big(Xchar: number, Ychar: number, Char_Offset: number, Color: number, Char_Size: number): void {
         return;
     }
 
