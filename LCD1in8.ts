@@ -279,7 +279,7 @@ namespace LCD1IN8{
 	
     //% blockId=DisStringBig
     //% blockGap=8
-    //% block="Show String|X %Xchar|Y %Ychar|char %ch|Color %Color|Size %Size"
+    //% block="Show String|X %Xchar|Y %Ychar|char %ch|Color %Color|Char_Size %Char_Size"
     //% Xchar.min=1 Xchar.max=160 Ychar.min=1 Ychar.max=128
     //% Color.min=0 Color.max=65535
     //% Char_Size.min=1 Char_Size.max=10
@@ -315,7 +315,7 @@ namespace LCD1IN8{
 	
     //% blockId=DisNumberBig
     //% blockGap=8
-    //% block="Show number|X %Xnum|Y %Ynum|number %num|Color %Color|Size %Size"
+    //% block="Show number|X %Xnum|Y %Ynum|number %num|Color %Color|Char_Size %Char_Size"
     //% Xnum.min=1 Xnum.max=160 Ynum.min=1 Ynum.max=128
     //% Color.min=0 Color.max=65535
     //% Char_Size.min=1 Char_Size.max=10
