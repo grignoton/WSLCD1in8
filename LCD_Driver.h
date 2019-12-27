@@ -71,6 +71,7 @@ public:
     
 	void LCD_DrawPoint(int x, int y, int Color, int Dot);
 	void LCD_DisChar_1207(int Xchar, int Ychar, int Char_Offset, int Color);
+	void LCD_DisChar_1207_Big(int Xchar, int Ychar, int Char_Offset, int Color, int Size);
 };
 
 static const unsigned char Font12_Table[] = 
