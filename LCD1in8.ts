@@ -284,6 +284,37 @@ namespace LCD1IN8{
     //% Color.min=0 Color.max=65535
     //% Char_Size.min=1 Char_Size.max=10
     //% weight=100
+	export function DisStringBig(Xchar: number, Ychar: number, ch: string, Color: number, Char_Size: number): void {
+        let Xpoint = Xchar;
+        let Ypoint = Ychar;
+        let Font_Height = 12;
+        let Font_Width = 7;
+        let ch_len = ch.length;
+        let i = 0;
+        for(i = 0; i < ch_len; i++) {
+            let ch_asicc =  ch.charCodeAt(i) - 32;//NULL = 32
+            let Char_Offset = ch_asicc * Font_Height;
+			// let Char_Offset = ch_asicc * Font_Height *(Font_Width/8 +(Font_Width%8?1:0));
+			
+            if((Xpoint + Font_Width) > 160) {
+                Xpoint = Xchar;
+                Ypoint += Font_Height;
+            }
+
+            // If the Y direction is full, reposition to(Xstart, Ystart)
+            if((Ypoint  + Font_Height) > 128) {
+                Xpoint = Xchar;
+                Ypoint = Ychar;
+            }
+            DisChar_1207(Xpoint, Ypoint, Char_Offset, Color);
+
+            //The next word of the abscissa increases the font of the broadband
+            Xpoint += Font_Width;
+        }
+    }
+
+	
+	/*
     export function DisStringBig(Xchar: number, Ychar: number, ch: string, Color: number, Char_Size: number): void {
         let Xpoint = Xchar;
         let Ypoint = Ychar;
@@ -312,6 +343,7 @@ namespace LCD1IN8{
             Xpoint += (Font_Width * Char_Size);
         }
     }
+    */
 	
     //% blockId=DisNumberBig
     //% blockGap=8
