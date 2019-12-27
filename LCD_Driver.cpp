@@ -402,10 +402,8 @@ void LCD_Driver::LCD_DisChar_Big(int Xchar, int Ychar, int Char_Offset, int Colo
     for(Page = 0; Page < 12; Page ++ ) {
         for(Column = 0; Column < 7; Column ++ ) {
             if(*ptr & (0x80 >> (Column % 8))) {
-		for (NbX = 0; NbX < Char_Size; NbX ++ )
-		{
-		  for (NbY = 0; NbY < Char_Size; NbY ++ )
-		  {
+		for (NbX = 0; NbX < Char_Size; NbX ++ )	{
+		  for (NbY = 0; NbY < Char_Size; NbY ++ ) {
                       LCD_SetPoint(Xchar + (Column * Char_Size) + NbX, Ychar + ( Page * Char_Size) + NbY, Color);
 		  }
 		}
