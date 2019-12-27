@@ -366,7 +366,7 @@ void LCD_Driver::LCD_DisChar_1207(int Xchar, int Ychar, int Char_Offset, int Col
     }// Write all
 }
 
-void LCD_Driver::LCD_DisChar_1207_Big(int Xchar, int Ychar, int Char_Offset, int Color,int Size)
+void LCD_Driver::LCD_DisChar_1207_Big(int Xchar, int Ychar, int Char_Offset, int Color,int Char_Size)
 {
     int Page = 0, Column = 0, NbX = 0, NbY = 0 ;
     const unsigned char *ptr = &Font12_Table[Char_Offset];
@@ -374,11 +374,11 @@ void LCD_Driver::LCD_DisChar_1207_Big(int Xchar, int Ychar, int Char_Offset, int
     for(Page = 0; Page < 12; Page ++ ) {
         for(Column = 0; Column < 7; Column ++ ) {
             if(*ptr & (0x80 >> (Column % 8))) {
-		for (NbX = 0; NbX < Size; NbX ++ )
+		for (NbX = 0; NbX < Char_Size; NbX ++ )
 		{
-		  for (NbY = 0; NbY < Size; NbY ++ )
+		  for (NbY = 0; NbY < Char_Size; NbY ++ )
 		  {
-                      LCD_SetPoint(Xchar + (Column * Size) + Nb, Ychar + ( Page * Size) + NbY, Color);
+                      LCD_SetPoint(Xchar + (Column * Char_Size) + NbX, Ychar + ( Page * Char_Size) + NbY, Color);
 		  }
 		}
 	    }
