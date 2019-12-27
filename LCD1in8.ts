@@ -224,6 +224,11 @@ namespace LCD1IN8{
     function DisChar_1207(Xchar: number, Ychar: number, Char_Offset: number, Color: number): void {
         return;
     }
+	
+    //% shim=LCD1IN8::DisChar_1207
+    function DisChar_1207_Big(Xchar: number, Ychar: number, Char_Offset: number, Color: number, Size: number): void {
+        return;
+    }
 
     //% blockId=DisString
     //% blockGap=8
