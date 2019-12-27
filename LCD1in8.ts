@@ -221,12 +221,12 @@ namespace LCD1IN8{
     }
 
     //% shim=LCD1IN8::DisChar_1207
-    function DisChar_1207(Xchar: number, Ychar: number, Char_Offset: number, Color: number): void {
+    export function DisChar_1207(Xchar: number, Ychar: number, Char_Offset: number, Color: number): void {
         return;
     }
 	
     //% shim=LCD1IN8::DisChar_Big
-    function DisChar_Big(Xchar: number, Ychar: number, Char_Offset: number, Color: number, Char_Size: number): void {
+    export function DisChar_Big(Xchar: number, Ychar: number, Char_Offset: number, Color: number, Char_Size: number): void {
         return;
     }
 
@@ -306,7 +306,7 @@ namespace LCD1IN8{
                 Xpoint = Xchar;
                 Ypoint = Ychar;
             }
-            DisChar_1207(Xpoint, Ypoint, Char_Offset, Color);
+            DisChar_Big(Xpoint, Ypoint, Char_Offset, Color,Char_Size);
 
             //The next word of the abscissa increases the font of the broadband
             Xpoint += Font_Width;
