@@ -365,3 +365,29 @@ void LCD_Driver::LCD_DisChar_1207(int Xchar, int Ychar, int Char_Offset, int Col
             ptr++;
     }// Write all
 }
+
+void LCD_Driver::LCD_DisChar_1207_Big(int Xchar, int Ychar, int Char_Offset, int Color,int Size)
+{
+    int Page = 0, Column = 0, NbX = 0, NbY = 0 ;
+    const unsigned char *ptr = &Font12_Table[Char_Offset];
+
+    for(Page = 0; Page < 12; Page ++ ) {
+        for(Column = 0; Column < 7; Column ++ ) {
+            if(*ptr & (0x80 >> (Column % 8))) {
+		for (NbX = 0; NbX < Size; NbX ++ )
+		{
+		  for (NbY = 0; NbY < Size; NbY ++ )
+		  {
+                      LCD_SetPoint(Xchar + (Column * Size) + Nb, Ychar + ( Page * Size) + NbY, Color);
+		  }
+		}
+	    }
+
+            //One pixel is 8 bits
+            if(Column % 8 == 7)
+                ptr++;
+        }// Write a line
+        if(7 % 8 != 0)
+            ptr++;
+    }// Write all
+}
