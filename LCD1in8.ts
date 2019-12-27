@@ -279,7 +279,7 @@ namespace LCD1IN8{
 	
     //% blockId=DisStringBig
     //% blockGap=8
-    //% block="Show String|X %Xchar|Y %Ychar|char %ch|Color %Color|Char_Size %Char_Size"
+    //% block="Show String Big|X %Xchar|Y %Ychar|char %ch|Color %Color|Char_Size %Char_Size"
     //% Xchar.min=1 Xchar.max=160 Ychar.min=1 Ychar.max=128
     //% Color.min=0 Color.max=65535
     //% Char_Size.min=1 Char_Size.max=10
@@ -296,33 +296,33 @@ namespace LCD1IN8{
             let Char_Offset = ch_asicc * Font_Height;
 			// let Char_Offset = ch_asicc * Font_Height *(Font_Width/8 +(Font_Width%8?1:0));
 			
-            if((Xpoint + (Font_Width*Char_Size)) > 160) {
+            if((Xpoint + (Font_Width * Char_Size)) > 160) {
                 Xpoint = Xchar;
-                Ypoint += (Font_Height*Char_Size);
+                Ypoint += (Font_Height * Char_Size);
             }
 
             // If the Y direction is full, reposition to(Xstart, Ystart)
-            if((Ypoint  + (Font_Height*Char_Size)) > 128) {
+            if((Ypoint  + (Font_Height * Char_Size)) > 128) {
                 Xpoint = Xchar;
                 Ypoint = Ychar;
             }
-            DisChar_1207_Big(Xpoint, Ypoint, Char_Offset, Color,Char_Size);
+            DisChar_1207_Big(Xpoint, Ypoint, Char_Offset, Color, Char_Size);
 
             //The next word of the abscissa increases the font of the broadband
-            Xpoint += (Font_Width*Char_Size);
+            Xpoint += (Font_Width * Char_Size);
         }
     }
 	
     //% blockId=DisNumberBig
     //% blockGap=8
-    //% block="Show number|X %Xnum|Y %Ynum|number %num|Color %Color|Char_Size %Char_Size"
+    //% block="Show number Big|X %Xnum|Y %Ynum|number %num|Color %Color|Char_Size %Char_Size"
     //% Xnum.min=1 Xnum.max=160 Ynum.min=1 Ynum.max=128
     //% Color.min=0 Color.max=65535
     //% Char_Size.min=1 Char_Size.max=10
     //% weight=100
-    export function DisNumber(Xnum: number, Ynum: number, num: number, Color: number,Char_Size: number): void {
+    export function DisNumberBig(Xnum: number, Ynum: number, num: number, Color: number,Char_Size: number): void {
         let Xpoint = Xnum;
         let Ypoint = Ynum;
-        DisStringBig(Xnum, Ynum, num + "", Color,Char_Size);
+        DisStringBig(Xnum, Ynum, num + "", Color, Char_Size);
     }
 }
