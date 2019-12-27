@@ -306,7 +306,7 @@ namespace LCD1IN8{
                 Xpoint = Xchar;
                 Ypoint = Ychar;
             }
-            DisChar_Big(Xpoint, Ypoint, Char_Offset, Color);
+            DisChar_1207(Xpoint, Ypoint, Char_Offset, Color);
 
             //The next word of the abscissa increases the font of the broadband
             Xpoint += Font_Width;
