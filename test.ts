@@ -96,6 +96,14 @@ LCD1IN8.DisNumber(
 LCD1IN8.Get_Color(LCD_COLOR.BLUE)
 )
 
+LCD1IN8.DisNumberBig(
+90,
+40,
+8,
+LCD1IN8.Get_Color(LCD_COLOR.BLUE),
+4
+)
+
 LCD1IN8.LCD_DisplayWindows(10,30,160,60)
 
 
