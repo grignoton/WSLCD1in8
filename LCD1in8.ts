@@ -315,12 +315,12 @@ namespace LCD1IN8{
 	
     //% blockId=DisNumberBig
     //% blockGap=8
-    //% block="Show number Big|X %Xnum|Y %Ynum|number %num|Color %Color|Char_Size %Char_Size"
+    //% block="Show number Big|X %Xnum|Y %Ynum|number %num|Color %Color|Taille %Char_Size"
     //% Xnum.min=1 Xnum.max=160 Ynum.min=1 Ynum.max=128
     //% Color.min=0 Color.max=65535
     //% Char_Size.min=1 Char_Size.max=10
     //% weight=100
-    export function DisNumberBig(Xnum: number, Ynum: number, num: number, Color: number,Char_Size: number): void {
+    export function DisNumberBig(Xnum: number, Ynum: number, num: number, Color: number, Char_Size: number): void {
         let Xpoint = Xnum;
         let Ypoint = Ynum;
         DisStringBig(Xnum, Ynum, num + "", Color, Char_Size);
