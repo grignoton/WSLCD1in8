@@ -49,7 +49,7 @@ namespace LCD1IN8 {
     }
 	
     void DisChar_1207_Big(int Xchar, int Ychar, int Char_Offset, int Color, int Size){
-        LCD->LCD_DisChar_1207_Big(Xchar, Ychar, Char_Offset, Color,Size);
+        LCD->LCD_DisChar_1207_Big(Xchar, Ychar, Char_Offset, Color, Size);
     }
 }
 
